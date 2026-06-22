@@ -1,0 +1,1118 @@
+/* ============================================================
+   TravelGo — Global Stylesheet
+   Font: Plus Jakarta Sans (Google Fonts)
+   Design: Modern travel booking, deep navy + electric blue accent
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   0. CSS Variables
+------------------------------------------------------------ */
+:root {
+  --navy:        #0B1426;
+  --navy-light:  #132040;
+  --navy-mid:    #1E3260;
+  --blue:        #2563EB;
+  --blue-light:  #3B82F6;
+  --blue-glow:   #60A5FA;
+  --accent:      #F59E0B;      /* kuning amber untuk highlight */
+  --white:       #FFFFFF;
+  --gray-50:     #F8FAFC;
+  --gray-100:    #F1F5F9;
+  --gray-200:    #E2E8F0;
+  --gray-400:    #94A3B8;
+  --gray-600:    #475569;
+  --gray-800:    #1E293B;
+  --success:     #10B981;
+  --danger:      #EF4444;
+  --warning:     #F59E0B;
+
+  --radius-sm:   6px;
+  --radius-md:   12px;
+  --radius-lg:   20px;
+  --radius-xl:   28px;
+
+  --shadow-sm:   0 1px 3px rgba(0,0,0,.08), 0 1px 2px rgba(0,0,0,.06);
+  --shadow-md:   0 4px 16px rgba(0,0,0,.10);
+  --shadow-lg:   0 8px 32px rgba(0,0,0,.14);
+  --shadow-blue: 0 4px 20px rgba(37,99,235,.30);
+
+  --transition:  all .22s cubic-bezier(.4,0,.2,1);
+}
+
+/* ------------------------------------------------------------
+   1. Reset & Base
+------------------------------------------------------------ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--gray-800);
+  background: var(--gray-50);
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a { text-decoration: none; color: inherit; transition: var(--transition); }
+img { max-width: 100%; display: block; }
+ul { padding: 0; list-style: none; }
+
+/* ------------------------------------------------------------
+   2. Navbar
+------------------------------------------------------------ */
+.tg-navbar {
+  background: var(--navy);
+  padding: 0 0;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+}
+
+.tg-logo {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--white) !important;
+  letter-spacing: -.5px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.tg-logo span { color: var(--blue-glow); }
+.tg-logo .bi { color: var(--blue-glow); font-size: 1.3rem; }
+
+.tg-nav-link {
+  color: rgba(255,255,255,.72) !important;
+  font-size: .88rem;
+  font-weight: 500;
+  padding: 1.1rem .85rem !important;
+  border-radius: 0;
+  border-bottom: 2px solid transparent;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: var(--transition);
+}
+.tg-nav-link:hover,
+.tg-nav-link.active {
+  color: var(--white) !important;
+  border-bottom-color: var(--blue-light);
+}
+
+.tg-avatar {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--blue-light);
+}
+
+.tg-dropdown {
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  padding: 6px;
+  min-width: 200px;
+}
+.tg-dropdown .dropdown-item {
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  font-size: .88rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+.tg-dropdown .dropdown-item:hover { background: var(--gray-100); }
+
+/* ------------------------------------------------------------
+   3. Buttons
+------------------------------------------------------------ */
+.tg-btn-primary {
+  background: var(--blue);
+  color: var(--white) !important;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 9px 20px;
+  font-size: .88rem;
+  font-weight: 600;
+  letter-spacing: .2px;
+  transition: var(--transition);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.tg-btn-primary:hover {
+  background: var(--blue-light);
+  box-shadow: var(--shadow-blue);
+  transform: translateY(-1px);
+}
+
+.tg-btn-outline {
+  background: transparent;
+  color: var(--white) !important;
+  border: 1.5px solid rgba(255,255,255,.35);
+  border-radius: var(--radius-md);
+  padding: 8px 18px;
+  font-size: .88rem;
+  font-weight: 500;
+  transition: var(--transition);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.tg-btn-outline:hover {
+  border-color: var(--white);
+  background: rgba(255,255,255,.08);
+}
+
+.tg-btn-accent {
+  background: var(--accent);
+  color: var(--navy) !important;
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: .2px;
+  transition: var(--transition);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.tg-btn-accent:hover {
+  background: #FBBF24;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(245,158,11,.40);
+}
+
+/* ------------------------------------------------------------
+   4. Hero Section
+------------------------------------------------------------ */
+.tg-hero {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #1a3a7a 100%);
+  padding: 72px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.tg-hero::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(37,99,235,.18) 0%, transparent 70%);
+  top: -100px; right: -100px;
+  pointer-events: none;
+}
+.tg-hero::after {
+  content: '';
+  position: absolute;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(96,165,250,.10) 0%, transparent 70%);
+  bottom: 0; left: 10%;
+  pointer-events: none;
+}
+
+.tg-hero-title {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.15;
+  letter-spacing: -1px;
+}
+.tg-hero-title span { color: var(--blue-glow); }
+
+.tg-hero-sub {
+  font-size: 1.05rem;
+  color: rgba(255,255,255,.70);
+  margin-top: 12px;
+}
+
+.tg-hero-stats {
+  display: flex;
+  gap: 32px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+.tg-stat-item { text-align: center; }
+.tg-stat-num {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1;
+}
+.tg-stat-label {
+  font-size: .78rem;
+  color: rgba(255,255,255,.55);
+  margin-top: 2px;
+}
+
+/* ------------------------------------------------------------
+   5. Search Panel (Booking Form)
+------------------------------------------------------------ */
+.tg-search-panel {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  padding: 28px 32px;
+  margin-top: 36px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Tab transportasi */
+.tg-tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 2px solid var(--gray-100);
+  margin-bottom: 24px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.tg-tabs::-webkit-scrollbar { display: none; }
+
+.tg-tab {
+  background: none;
+  border: none;
+  padding: 10px 18px;
+  font-size: .88rem;
+  font-weight: 600;
+  color: var(--gray-400);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  white-space: nowrap;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+}
+.tg-tab:hover { color: var(--blue); }
+.tg-tab.active {
+  color: var(--blue);
+  border-bottom-color: var(--blue);
+  background: rgba(37,99,235,.05);
+}
+
+/* Toggle sekali jalan / pulang pergi */
+.tg-trip-toggle {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.tg-trip-btn {
+  background: var(--gray-100);
+  border: 1.5px solid transparent;
+  border-radius: 50px;
+  padding: 6px 16px;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--gray-600);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.tg-trip-btn.active {
+  background: rgba(37,99,235,.08);
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+/* Form row */
+.tg-search-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr 1fr 1fr;
+  gap: 12px;
+  align-items: end;
+}
+
+.tg-field { display: flex; flex-direction: column; gap: 4px; }
+.tg-field label {
+  font-size: .76rem;
+  font-weight: 700;
+  color: var(--gray-600);
+  text-transform: uppercase;
+  letter-spacing: .6px;
+}
+.tg-field input,
+.tg-field select {
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  padding: 11px 14px;
+  font-size: .92rem;
+  font-family: inherit;
+  color: var(--gray-800);
+  background: var(--white);
+  outline: none;
+  transition: var(--transition);
+  width: 100%;
+}
+.tg-field input:focus,
+.tg-field select:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+}
+
+/* Tombol swap asal-tujuan */
+.tg-swap-btn {
+  background: var(--gray-100);
+  border: 1.5px solid var(--gray-200);
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--blue);
+  font-size: 1rem;
+  flex-shrink: 0;
+  align-self: flex-end;
+  margin-bottom: 2px;
+}
+.tg-swap-btn:hover {
+  background: var(--blue);
+  color: var(--white);
+  border-color: var(--blue);
+  transform: rotate(180deg);
+}
+
+/* Pulang pergi — tambah field tanggal kembali */
+.tg-return-field { display: none; }
+.tg-return-field.show { display: flex; flex-direction: column; gap: 4px; }
+
+/* ------------------------------------------------------------
+   6. Popular Routes
+------------------------------------------------------------ */
+.tg-popular-routes {
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid var(--gray-100);
+}
+.tg-popular-routes p {
+  font-size: .78rem;
+  font-weight: 700;
+  color: var(--gray-400);
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  margin-bottom: 8px;
+}
+.tg-route-chips {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.tg-chip {
+  background: var(--gray-100);
+  border: 1px solid var(--gray-200);
+  border-radius: 50px;
+  padding: 5px 14px;
+  font-size: .82rem;
+  font-weight: 500;
+  color: var(--gray-600);
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.tg-chip:hover {
+  background: rgba(37,99,235,.08);
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+/* ------------------------------------------------------------
+   7. Transport Cards (section homepage)
+------------------------------------------------------------ */
+.tg-section { padding: 72px 0; }
+.tg-section-title {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -.5px;
+}
+.tg-section-sub { color: var(--gray-600); margin-top: 6px; }
+
+.tg-transport-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  transition: var(--transition);
+  cursor: pointer;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.tg-transport-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--blue);
+  transform: scaleX(0);
+  transition: var(--transition);
+}
+.tg-transport-card:hover {
+  border-color: var(--blue-light);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+}
+.tg-transport-card:hover::before { transform: scaleX(1); }
+
+.tg-transport-icon {
+  width: 52px; height: 52px;
+  background: rgba(37,99,235,.08);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: var(--blue);
+  margin-bottom: 14px;
+}
+.tg-transport-card h5 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.tg-transport-card p {
+  font-size: .82rem;
+  color: var(--gray-600);
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+.tg-price-tag {
+  font-size: .82rem;
+  color: var(--gray-600);
+}
+.tg-price-tag span {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--blue);
+}
+
+/* ------------------------------------------------------------
+   8. Promo Cards
+------------------------------------------------------------ */
+.tg-promo-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  height: 180px;
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  transition: var(--transition);
+}
+.tg-promo-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+.tg-promo-card .tg-promo-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform .4s;
+}
+.tg-promo-card:hover .tg-promo-bg { transform: scale(1.04); }
+.tg-promo-card .tg-promo-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(11,20,38,.85) 0%, transparent 60%);
+}
+.tg-promo-content { position: relative; z-index: 1; }
+.tg-promo-badge {
+  background: var(--accent);
+  color: var(--navy);
+  font-size: .72rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 50px;
+  display: inline-block;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+.tg-promo-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.3;
+}
+
+/* ------------------------------------------------------------
+   9. How It Works
+------------------------------------------------------------ */
+.tg-how-step {
+  text-align: center;
+  padding: 20px;
+}
+.tg-step-num {
+  width: 52px; height: 52px;
+  background: var(--blue);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin: 0 auto 16px;
+  box-shadow: var(--shadow-blue);
+}
+.tg-how-step h5 {
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.tg-how-step p { font-size: .84rem; color: var(--gray-600); }
+
+/* ------------------------------------------------------------
+   10. Search Results (pages/search.php)
+------------------------------------------------------------ */
+.tg-result-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 20px 24px;
+  margin-bottom: 14px;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.tg-result-card:hover {
+  border-color: var(--blue-light);
+  box-shadow: var(--shadow-md);
+}
+.tg-operator-logo {
+  width: 56px; height: 56px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--gray-200);
+  padding: 4px;
+  flex-shrink: 0;
+}
+.tg-flight-time {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1;
+}
+.tg-flight-duration {
+  font-size: .78rem;
+  color: var(--gray-400);
+  text-align: center;
+  padding: 0 16px;
+  position: relative;
+}
+.tg-flight-duration::before,
+.tg-flight-duration::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 1px;
+  background: var(--gray-200);
+}
+.tg-flight-duration::before { right: 100%; margin-right: -16px; }
+.tg-flight-duration::after  { left: 100%;  margin-left: -16px; }
+
+.tg-result-price {
+  margin-left: auto;
+  text-align: right;
+}
+.tg-result-price .price {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--blue);
+}
+.tg-result-price .per-orang {
+  font-size: .76rem;
+  color: var(--gray-400);
+}
+
+/* ------------------------------------------------------------
+   11. Booking Form (pages/booking.php)
+------------------------------------------------------------ */
+.tg-booking-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.tg-booking-card-header {
+  background: var(--navy);
+  color: var(--white);
+  padding: 14px 20px;
+  font-weight: 700;
+  font-size: .9rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.tg-booking-card-body { padding: 20px; }
+
+.tg-form-label {
+  font-size: .78rem;
+  font-weight: 700;
+  color: var(--gray-600);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-bottom: 6px;
+  display: block;
+}
+.tg-form-control {
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  padding: 11px 14px;
+  font-size: .92rem;
+  font-family: inherit;
+  color: var(--gray-800);
+  width: 100%;
+  outline: none;
+  transition: var(--transition);
+}
+.tg-form-control:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+}
+
+/* Seat map */
+.tg-seat-map {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+  max-width: 320px;
+}
+.tg-seat {
+  aspect-ratio: 1;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .72rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  background: var(--white);
+  color: var(--gray-600);
+}
+.tg-seat:hover:not(.taken)  { border-color: var(--blue); color: var(--blue); }
+.tg-seat.selected { background: var(--blue); color: var(--white); border-color: var(--blue); }
+.tg-seat.taken    { background: var(--gray-200); color: var(--gray-400); cursor: not-allowed; }
+.tg-seat.aisle    { visibility: hidden; }
+
+/* ------------------------------------------------------------
+   12. Order Summary Sidebar
+------------------------------------------------------------ */
+.tg-summary-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: sticky;
+  top: 80px;
+}
+.tg-summary-header {
+  background: var(--navy);
+  color: var(--white);
+  padding: 14px 20px;
+  font-weight: 700;
+  font-size: .9rem;
+}
+.tg-summary-body { padding: 20px; }
+.tg-summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: .88rem;
+  margin-bottom: 10px;
+  color: var(--gray-600);
+}
+.tg-summary-row.total {
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--navy);
+  border-top: 1px solid var(--gray-200);
+  padding-top: 12px;
+  margin-top: 4px;
+}
+.tg-summary-row.total span:last-child { color: var(--blue); }
+
+/* ------------------------------------------------------------
+   13. Payment Page
+------------------------------------------------------------ */
+.tg-payment-method {
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-bottom: 10px;
+}
+.tg-payment-method:hover { border-color: var(--blue-light); }
+.tg-payment-method.selected {
+  border-color: var(--blue);
+  background: rgba(37,99,235,.04);
+}
+.tg-payment-method input[type="radio"] { accent-color: var(--blue); }
+.tg-payment-method-logo {
+  width: 60px;
+  height: 30px;
+  object-fit: contain;
+}
+
+/* Countdown timer */
+.tg-countdown {
+  background: rgba(239,68,68,.08);
+  border: 1px solid rgba(239,68,68,.20);
+  border-radius: var(--radius-md);
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--danger);
+  font-weight: 700;
+  font-size: .92rem;
+  margin-bottom: 20px;
+}
+
+/* ------------------------------------------------------------
+   14. E-Ticket
+------------------------------------------------------------ */
+.tg-ticket {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  max-width: 560px;
+  margin: 0 auto;
+}
+.tg-ticket-header {
+  background: var(--navy);
+  padding: 24px 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tg-ticket-body { padding: 28px; }
+.tg-ticket-route {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.tg-ticket-city {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1;
+}
+.tg-ticket-arrow {
+  flex: 1;
+  height: 1px;
+  background: var(--gray-200);
+  position: relative;
+}
+.tg-ticket-arrow::after {
+  content: '✈';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--white);
+  padding: 0 8px;
+  font-size: 1rem;
+}
+.tg-ticket-cut {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin: 0 -28px;
+  position: relative;
+}
+.tg-ticket-cut::before,
+.tg-ticket-cut::after {
+  content: '';
+  width: 24px; height: 24px;
+  background: var(--gray-50);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.tg-ticket-cut-line {
+  flex: 1;
+  border-top: 2px dashed var(--gray-200);
+}
+
+/* Barcode placeholder */
+.tg-barcode {
+  text-align: center;
+  padding: 16px 0 0;
+}
+.tg-barcode img { max-width: 200px; margin: 0 auto; }
+
+/* ------------------------------------------------------------
+   15. History & Profile
+------------------------------------------------------------ */
+.tg-history-item {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 18px 22px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  transition: var(--transition);
+}
+.tg-history-item:hover { border-color: var(--blue-light); box-shadow: var(--shadow-sm); }
+
+.tg-status-badge {
+  font-size: .74rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 50px;
+  letter-spacing: .3px;
+  text-transform: uppercase;
+}
+.tg-status-paid      { background: rgba(16,185,129,.12); color: #065F46; }
+.tg-status-pending   { background: rgba(245,158,11,.12);  color: #92400E; }
+.tg-status-cancelled { background: rgba(239,68,68,.12);   color: #991B1B; }
+.tg-status-expired   { background: var(--gray-100);        color: var(--gray-600); }
+
+/* ------------------------------------------------------------
+   16. Admin Dashboard
+------------------------------------------------------------ */
+.tg-admin-sidebar {
+  background: var(--navy);
+  min-height: 100vh;
+  width: 240px;
+  position: fixed;
+  top: 0; left: 0;
+  padding: 24px 0;
+  z-index: 100;
+}
+.tg-admin-sidebar .tg-logo { padding: 0 20px 24px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.tg-admin-menu { padding: 16px 12px; }
+.tg-admin-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  color: rgba(255,255,255,.65);
+  font-size: .88rem;
+  font-weight: 500;
+  transition: var(--transition);
+  margin-bottom: 2px;
+  cursor: pointer;
+}
+.tg-admin-menu-item:hover,
+.tg-admin-menu-item.active {
+  background: rgba(255,255,255,.10);
+  color: var(--white);
+}
+.tg-admin-content { margin-left: 240px; padding: 28px; }
+
+.tg-stat-card {
+  background: var(--white);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: 22px 24px;
+}
+.tg-stat-card .icon {
+  width: 44px; height: 44px;
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+}
+.tg-stat-card .icon.blue   { background: rgba(37,99,235,.10);  color: var(--blue); }
+.tg-stat-card .icon.green  { background: rgba(16,185,129,.10); color: var(--success); }
+.tg-stat-card .icon.amber  { background: rgba(245,158,11,.10); color: var(--warning); }
+.tg-stat-card .icon.red    { background: rgba(239,68,68,.10);  color: var(--danger); }
+.tg-stat-card .value {
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: var(--navy);
+  line-height: 1;
+}
+.tg-stat-card .label {
+  font-size: .82rem;
+  color: var(--gray-600);
+  margin-top: 4px;
+}
+
+/* ------------------------------------------------------------
+   17. Footer
+------------------------------------------------------------ */
+.tg-footer {
+  background: var(--navy);
+  color: rgba(255,255,255,.70);
+  padding: 56px 0 0;
+  margin-top: auto;
+}
+
+.tg-footer-title {
+  font-size: .82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.tg-footer-desc { font-size: .88rem; line-height: 1.7; }
+
+.tg-footer-links li { margin-bottom: 8px; }
+.tg-footer-links a {
+  font-size: .88rem;
+  color: rgba(255,255,255,.60);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.tg-footer-links a:hover { color: var(--white); }
+
+.tg-footer-contact li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: .88rem;
+}
+.tg-footer-contact .bi { color: var(--blue-glow); flex-shrink: 0; margin-top: 2px; }
+
+.tg-social {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,.08);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,.70);
+  font-size: .95rem;
+  transition: var(--transition);
+}
+.tg-social:hover { background: var(--blue); color: var(--white); }
+
+.tg-store-btn {
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: var(--radius-md);
+  padding: 8px 14px;
+  font-size: .8rem;
+  font-weight: 600;
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: var(--transition);
+}
+.tg-store-btn:hover { background: var(--blue); border-color: var(--blue); color: var(--white); }
+
+.tg-footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.08);
+  padding: 18px 0;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: .82rem;
+}
+
+.tg-payment-icon {
+  height: 22px;
+  width: auto;
+  filter: brightness(0) invert(.6);
+  transition: var(--transition);
+}
+.tg-payment-icon:hover { filter: brightness(0) invert(1); }
+
+/* ------------------------------------------------------------
+   18. Alert & Toast
+------------------------------------------------------------ */
+.tg-alert {
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  font-size: .88rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.tg-alert-success { background: rgba(16,185,129,.10); color: #065F46; border: 1px solid rgba(16,185,129,.25); }
+.tg-alert-danger  { background: rgba(239,68,68,.10);  color: #991B1B; border: 1px solid rgba(239,68,68,.25); }
+.tg-alert-info    { background: rgba(37,99,235,.08);  color: #1E40AF; border: 1px solid rgba(37,99,235,.20); }
+
+/* ------------------------------------------------------------
+   19. Utilities
+------------------------------------------------------------ */
+.tg-bg-navy    { background: var(--navy); }
+.tg-text-blue  { color: var(--blue); }
+.tg-text-muted { color: var(--gray-400); }
+.tg-divider {
+  border: none;
+  border-top: 1px solid var(--gray-200);
+  margin: 20px 0;
+}
+
+/* Loading spinner */
+.tg-spinner {
+  width: 20px; height: 20px;
+  border: 2px solid var(--gray-200);
+  border-top-color: var(--blue);
+  border-radius: 50%;
+  animation: tg-spin .7s linear infinite;
+  display: inline-block;
+}
+@keyframes tg-spin { to { transform: rotate(360deg); } }
+
+/* Skeleton loading */
+.tg-skeleton {
+  background: linear-gradient(90deg, var(--gray-100) 25%, var(--gray-200) 50%, var(--gray-100) 75%);
+  background-size: 200% 100%;
+  animation: tg-shimmer 1.5s infinite;
+  border-radius: var(--radius-sm);
+}
+@keyframes tg-shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+
+/* Fade in on load */
+.tg-fade-in {
+  animation: tgFadeIn .4s ease forwards;
+  opacity: 0;
+}
+@keyframes tgFadeIn { to { opacity: 1; } }
+
+/* ------------------------------------------------------------
+   20. Responsive
+------------------------------------------------------------ */
+@media (max-width: 991px) {
+  .tg-search-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  .tg-swap-btn { display: none; }
+  .tg-admin-sidebar { display: none; }
+  .tg-admin-content { margin-left: 0; }
+}
+
+@media (max-width: 575px) {
+  .tg-search-panel { padding: 20px 16px; }
+  .tg-search-row   { grid-template-columns: 1fr; }
+  .tg-hero-stats   { gap: 20px; }
+  .tg-result-card  { flex-direction: column; align-items: flex-start; }
+  .tg-result-price { margin-left: 0; text-align: left; }
+}
