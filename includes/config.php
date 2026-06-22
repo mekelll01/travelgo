@@ -1,7 +1,7 @@
 <?php
 define('DB_HOST', 'mysql');
 define('DB_USER', 'root');        // default XAMPP
-define('DB_PASS', '');            // default XAMPP kosong
+define('DB_PASS', 'mekel01');            // default XAMPP kosong
 define('DB_NAME', 'travelgo');
 define('DB_CHARSET', 'utf8mb4');
 
