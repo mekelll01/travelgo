@@ -1,5 +1,5 @@
 <?php
-define('DB_HOST', 'localhost');
+define('DB_HOST', 'mysql');
 define('DB_USER', 'root');        // default XAMPP
 define('DB_PASS', '');            // default XAMPP kosong
 define('DB_NAME', 'travelgo');

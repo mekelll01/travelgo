@@ -9,7 +9,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use MongoDB\Client;
 
 // ---- Konfigurasi MongoDB ----
-define('MONGO_HOST', 'mongodb://localhost:27017');
+define('MONGO_HOST', 'mongodb://mongo:27017');
 define('MONGO_DB',   'travelgo');
 
 // ---- Buat koneksi ----
