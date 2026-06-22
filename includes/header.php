@@ -25,7 +25,7 @@ if (!defined('APP_NAME')) {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
 
   <!-- Custom CSS -->
-  <link href="/travelgo/assets/css/style.css" rel="stylesheet">
+  <link href="/assets/css/style.css" rel="stylesheet">
 
   <!-- Notifikasi styles -->
   <style>
