@@ -6,7 +6,7 @@ define('DB_NAME', 'travelgo');
 define('DB_CHARSET', 'utf8mb4');
 
 define('APP_NAME',    'TravelGo');
-define('APP_URL',     'http://localhost/travelgo');
+define('APP_URL',     'http://157.245.202.71:3000');
 define('APP_VERSION', '1.0.0');
 
 // Durasi session login (detik) — default 2 jam
